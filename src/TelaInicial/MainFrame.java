@@ -1,5 +1,8 @@
 package TelaInicial;
 
+import Requisicoes.RequisicaoTeste.RequisicaoTeste;
+import Requisicoes.Salvar;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -49,6 +52,7 @@ public class MainFrame extends JFrame implements ActionListener {
         listaapis.add("Alpha OTT");
         listaapis.add("Mware");
         listaapis.add("Chargebee");
+        listaapis.add("Github");
 
         apis = new JComboBox();
         apis.setModel(new javax.swing.DefaultComboBoxModel(listaapis.toArray()));
@@ -71,6 +75,7 @@ public class MainFrame extends JFrame implements ActionListener {
         TituloStreaming.setBounds(400, 20, 200, 100);
         jFramePrincipal.add(jTextFieldurl);
         jTextFieldurl.setBounds(330, 350, 300, 30);
+
         jTextFieldurl.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent focusEvent) {
@@ -95,6 +100,7 @@ public class MainFrame extends JFrame implements ActionListener {
         jFramePrincipal.setIconImage(iconeTitulo);
         jFramePrincipal.add(TituloStreaming);
         miInformacoes.addActionListener(this);
+        jrequisição.addActionListener(this);
         miSair.addActionListener(this);
         apis.addActionListener(this);
         jFramePrincipal.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -110,7 +116,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        jTextFieldurl.setText("");
+        //jTextFieldurl.setText("");
         if (actionEvent.getSource().equals(miSair)) {
             System.exit(0);
         } else if (actionEvent.getSource().equals(miInformacoes)) {
@@ -118,7 +124,11 @@ public class MainFrame extends JFrame implements ActionListener {
         } else if (actionEvent.getSource().equals(apis)) {
             jTextFieldurl.setText("Insira o endpoint do " + apis.getSelectedItem().toString());
 
-
+        } else if (actionEvent.getSource().equals(jrequisição)) {
+            //System.out.println("ok");
+            //new RequisicaoTeste();
+            String requisicao = jTextFieldurl.getText();
+            new RequisicaoTeste().fazerrquisicaoGithub(requisicao);
         }
     }
 
