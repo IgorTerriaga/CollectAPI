@@ -13,6 +13,7 @@ public class Salvar {
     public void criarJson(Map<String, String> listaatributos) {
         JSONObject jsonObject = new JSONObject();
         FileWriter fileWriter = null;
+        
         jsonObject.putAll(listaatributos);
 
         try {

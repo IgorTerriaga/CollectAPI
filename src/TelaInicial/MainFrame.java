@@ -110,7 +110,6 @@ public class MainFrame extends JFrame implements ActionListener {
         jFramePrincipal.setLocationRelativeTo(null);
         jFramePrincipal.setResizable(false);
 
-
     }
 
 
