@@ -29,6 +29,8 @@ public class MainFrame extends JFrame implements ActionListener {
     private JLabel titulorequisição;
     private JButton jrequisição;
     private JTextField jTextFieldurl;
+    private JTextField jTextFieldcaminhoSalvar;
+    //private JLabel labelcamiho;
 
 
     public MainFrame() {
@@ -44,6 +46,8 @@ public class MainFrame extends JFrame implements ActionListener {
         titulorequisição = new JLabel("Insira o endpoint da API");
         jrequisição = new JButton("Ir");
         jTextFieldurl = new JTextField();
+        //jTextFieldcaminhoSalvar = new JTextField();
+        //labelcamiho = new JLabel("Informe o nome do arquivo a ser gravado");
 
 
         //iconeFlussic = new ImageIcon(getClass().getResource("//TelaInicial//flussonic.png"));
@@ -63,6 +67,8 @@ public class MainFrame extends JFrame implements ActionListener {
     private void inicializarComponentes() {
         jFramePrincipal.setJMenuBar(mnBarra);
         jFramePrincipal.add(apis);
+        //jFramePrincipal.add(labelcamiho);
+        //jFramePrincipal.add(jTextFieldcaminhoSalvar);
         mnBarra.add(mnInformacoes);
         mnBarra.add(mnSairdaaplicacao);
         mnInformacoes.add(miInformacoes);
@@ -70,11 +76,14 @@ public class MainFrame extends JFrame implements ActionListener {
         jFramePrincipal.add(titulorequisição);
         titulorequisição.setBounds(400, 220, 200, 200);
         titulorequisição.setFont(new Font("arial", Font.CENTER_BASELINE, 16));
+        //labelcamiho.setFont(new Font("arial", Font.CENTER_BASELINE, 16));
         jFramePrincipal.add(jrequisição);
-        jrequisição.setBounds(650, 345, 50, 30);
+        jrequisição.setBounds(680, 450, 50, 30);
         TituloStreaming.setBounds(400, 20, 200, 100);
         jFramePrincipal.add(jTextFieldurl);
-        jTextFieldurl.setBounds(330, 350, 300, 30);
+        jTextFieldurl.setBounds(330, 350, 400, 30);
+        //labelcamiho.setBounds(380, 410, 400, 30);
+        //jTextFieldcaminhoSalvar.setBounds(340, 450, 350, 30);
 
         jTextFieldurl.addFocusListener(new FocusListener() {
             @Override
@@ -90,6 +99,18 @@ public class MainFrame extends JFrame implements ActionListener {
 
             }
         });
+
+       /* jTextFieldcaminhoSalvar.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent focusEvent) {
+                jTextFieldcaminhoSalvar.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent focusEvent) {
+
+            }
+        });*/
         TituloStreaming.setFont(new Font("arial", Font.BOLD, 20));
         apis.setBounds(380, 120, 200, 30);
 
@@ -127,7 +148,10 @@ public class MainFrame extends JFrame implements ActionListener {
             //System.out.println("ok");
             //new RequisicaoTeste();
             String requisicao = jTextFieldurl.getText();
+
+
             new RequisicaoTeste().fazerrquisicaoGithub(requisicao);
+
         }
     }
 
@@ -145,6 +169,4 @@ public class MainFrame extends JFrame implements ActionListener {
         new MainFrame().jFramePrincipal.show();
 
     }
-
-
 }

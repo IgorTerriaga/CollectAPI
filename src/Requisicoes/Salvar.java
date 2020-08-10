@@ -1,30 +1,55 @@
 package Requisicoes;
 
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Salvar {
 
-    public void criarJson(Map<String, String> listaatributos) {
-        JSONObject jsonObject = new JSONObject();
-        FileWriter fileWriter = null;
-        
-        jsonObject.putAll(listaatributos);
+    public void SalvarJson(List<Object> lista) {
 
-        try {
-            fileWriter = new FileWriter("saida.json");
-            fileWriter.write(jsonObject.toJSONString());
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        JFileChooser fc = new JFileChooser();
+        fc.setCurrentDirectory(new File("\\home"));
+        int returnval = fc.showSaveDialog(new JFrame());
+
+        if (returnval == JFileChooser.APPROVE_OPTION) {
+            try {
+                PrintStream ps = new PrintStream(fc.getSelectedFile() + ".json");
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(ps);
+                for (Object obj : lista) {
+                    objectOutputStream.writeObject(obj);
+                    objectOutputStream.flush();
+                }
+                objectOutputStream.close();
+
+                //FileWriter fw = new FileWriter(new File(nomearq));
+
+                //BufferedWriter bufferedWriter = new BufferedWriter(fw);
+                //bufferedWriter.write(String.valueOf(lista));
+
+                // JOptionPane.showMessageDialog(null, "Arquivo Salvo com sucesso ", "Messagem Save", JOptionPane.INFORMATION_MESSAGE);
+
+                //  bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (returnval == JFileChooser.CANCEL_OPTION) {
+            //JOptionPane.showMessageDialog(null, "Impossivel salvar resposta, "", JOptionPane.WARNING_MESSAGE);
+
         }
-        System.out.println(jsonObject);
+
+        //if (nomearq.isEmpty()) {
+        //  JOptionPane.showMessageDialog(null, "Nome do Arquivo não informado", "Messagem de alerta Save", JOptionPane.WARNING_MESSAGE);
+
+        //}
+
+
     }
-
-
 }

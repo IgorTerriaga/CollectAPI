@@ -8,12 +8,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RequisicaoTeste {
-    Map<String, String> atributos = new HashMap<>();
-
+    List<Object> resposta = new ArrayList<>();
     //String spec = "https://api.github.com/users/IgorTerriaga/repos";
     public void fazerrquisicaoGithub(String urls) {
         try {
@@ -25,12 +26,13 @@ public class RequisicaoTeste {
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
                     String line = br.readLine();
                     while (line != null) {
+                        resposta.add(line);
                         //atributos.put(line, line);
-                        String[] fields = line.split(" ");
-                        atributos.put(fields[0], fields[1]);
+                        //String[] fields = line.split(" ");
+                        //atributos.put(line, "");
                         line = br.readLine();
                     }
-                    new Salvar().criarJson(atributos);
+                    new Salvar().SalvarJson(resposta);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
