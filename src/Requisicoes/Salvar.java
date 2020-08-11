@@ -25,15 +25,6 @@ public class Salvar {
                     objectOutputStream.flush();
                 }
                 objectOutputStream.close();
-
-                //FileWriter fw = new FileWriter(new File(nomearq));
-
-                //BufferedWriter bufferedWriter = new BufferedWriter(fw);
-                //bufferedWriter.write(String.valueOf(lista));
-
-                // JOptionPane.showMessageDialog(null, "Arquivo Salvo com sucesso ", "Messagem Save", JOptionPane.INFORMATION_MESSAGE);
-
-                //  bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -41,12 +32,6 @@ public class Salvar {
             JOptionPane.showMessageDialog(null, "Resolveu não salvar", "Não salvou!", JOptionPane.WARNING_MESSAGE);
 
         }
-
-        //if (nomearq.isEmpty()) {
-        //  JOptionPane.showMessageDialog(null, "Nome do Arquivo não informado", "Messagem de alerta Save", JOptionPane.WARNING_MESSAGE);
-
-        //}
-
 
     }
 }
