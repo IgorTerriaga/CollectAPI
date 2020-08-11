@@ -51,8 +51,8 @@ public class MainFrame extends JFrame implements ActionListener {
         TituloStreaming = new JLabel("Lista de APIs testadas");
         //listaapis.add("Flussonic");
         //listaapis.add("Alpha OTT");
-        //listaapis.add("Mware");
-        //listaapis.add("Chargebee");
+        listaapis.add("Flussonic");
+        listaapis.add("Poke API");
         listaapis.add("Github");
 
         apis = new JComboBox();
@@ -113,6 +113,7 @@ public class MainFrame extends JFrame implements ActionListener {
         jFramePrincipal.pack();
         jFramePrincipal.setLocationRelativeTo(null);
         jFramePrincipal.setResizable(false);
+        jFramePrincipal.getRootPane().setDefaultButton(jrequisição);
 
     }
 
