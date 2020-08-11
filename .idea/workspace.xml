@@ -27,20 +27,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jackson-mapper-asl-1.9.3.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/TelaInicial" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/IconesFlussonic" />
-      <recent name="$PROJECT_DIR$/src/TelaInicial" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/TelaInicial" />
       <recent name="$PROJECT_DIR$/src/IconeMainFrame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/IconesFlussonic" />
+      <recent name="$PROJECT_DIR$/src/TelaInicial" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainFrame">
@@ -78,7 +79,9 @@
       <workItem from="1597079742704" duration="204000" />
       <workItem from="1597081053862" duration="1005000" />
       <workItem from="1597082259572" duration="4568000" />
-      <workItem from="1597086987704" duration="2529000" />
+      <workItem from="1597086987704" duration="3848000" />
+      <workItem from="1597102471689" duration="1109000" />
+      <workItem from="1597146938685" duration="912000" />
     </task>
     <servers />
   </component>
@@ -105,34 +108,38 @@
     </state>
     <state x="330" y="141" width="735" height="527" key="FileChooserDialogImpl/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596925362444" />
     <state x="330" y="141" key="FileChooserDialogImpl/51.27.1315.741@51.27.1315.741" timestamp="1597081890459" />
-    <state width="1269" height="134" key="GridCell.Tab.0.bottom" timestamp="1597089572118">
+    <state width="1269" height="66" key="GridCell.Tab.0.bottom" timestamp="1597147920422">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state width="1269" height="309" key="GridCell.Tab.0.bottom/51.27.1229.693/1366.0.1280.720@51.27.1229.693" timestamp="1596905026960" />
+    <state width="1263" height="66" key="GridCell.Tab.0.bottom/51.27.1309.741/1366.0.1280.720@51.27.1309.741" timestamp="1597103581599" />
     <state width="1320" height="226" key="GridCell.Tab.0.bottom/51.27.1315.741/1366.0.1280.720@1366.0.1280.720" timestamp="1596913775597" />
-    <state width="1269" height="219" key="GridCell.Tab.0.bottom/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596932749172" />
-    <state width="1269" height="134" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1597089572118" />
-    <state width="1269" height="134" key="GridCell.Tab.0.center" timestamp="1597089572117">
+    <state width="1269" height="66" key="GridCell.Tab.0.bottom/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1597147920422" />
+    <state width="1269" height="134" key="GridCell.Tab.0.bottom/51.27.1315.741@51.27.1315.741" timestamp="1597090176134" />
+    <state width="1269" height="66" key="GridCell.Tab.0.center" timestamp="1597147920421">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state width="1269" height="309" key="GridCell.Tab.0.center/51.27.1229.693/1366.0.1280.720@51.27.1229.693" timestamp="1596905026959" />
+    <state width="1263" height="66" key="GridCell.Tab.0.center/51.27.1309.741/1366.0.1280.720@51.27.1309.741" timestamp="1597103581598" />
     <state width="1320" height="226" key="GridCell.Tab.0.center/51.27.1315.741/1366.0.1280.720@1366.0.1280.720" timestamp="1596913775597" />
-    <state width="1269" height="219" key="GridCell.Tab.0.center/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596932749172" />
-    <state width="1269" height="134" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1597089572117" />
-    <state width="1269" height="134" key="GridCell.Tab.0.left" timestamp="1597089572117">
+    <state width="1269" height="66" key="GridCell.Tab.0.center/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1597147920421" />
+    <state width="1269" height="134" key="GridCell.Tab.0.center/51.27.1315.741@51.27.1315.741" timestamp="1597090176133" />
+    <state width="1269" height="66" key="GridCell.Tab.0.left" timestamp="1597147920421">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state width="1269" height="309" key="GridCell.Tab.0.left/51.27.1229.693/1366.0.1280.720@51.27.1229.693" timestamp="1596905026959" />
+    <state width="1263" height="66" key="GridCell.Tab.0.left/51.27.1309.741/1366.0.1280.720@51.27.1309.741" timestamp="1597103581598" />
     <state width="1320" height="226" key="GridCell.Tab.0.left/51.27.1315.741/1366.0.1280.720@1366.0.1280.720" timestamp="1596913775596" />
-    <state width="1269" height="219" key="GridCell.Tab.0.left/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596932749171" />
-    <state width="1269" height="134" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1597089572117" />
-    <state width="1269" height="134" key="GridCell.Tab.0.right" timestamp="1597089572118">
+    <state width="1269" height="66" key="GridCell.Tab.0.left/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1597147920421" />
+    <state width="1269" height="134" key="GridCell.Tab.0.left/51.27.1315.741@51.27.1315.741" timestamp="1597090176132" />
+    <state width="1269" height="66" key="GridCell.Tab.0.right" timestamp="1597147920421">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
     <state width="1269" height="309" key="GridCell.Tab.0.right/51.27.1229.693/1366.0.1280.720@51.27.1229.693" timestamp="1596905026960" />
+    <state width="1263" height="66" key="GridCell.Tab.0.right/51.27.1309.741/1366.0.1280.720@51.27.1309.741" timestamp="1597103581598" />
     <state width="1320" height="226" key="GridCell.Tab.0.right/51.27.1315.741/1366.0.1280.720@1366.0.1280.720" timestamp="1596913775597" />
-    <state width="1269" height="219" key="GridCell.Tab.0.right/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596932749172" />
-    <state width="1269" height="134" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1597089572118" />
+    <state width="1269" height="66" key="GridCell.Tab.0.right/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1597147920421" />
+    <state width="1269" height="134" key="GridCell.Tab.0.right/51.27.1315.741@51.27.1315.741" timestamp="1597090176133" />
     <state width="1320" height="226" key="GridCell.Tab.1.bottom" timestamp="1596913775597">
       <screen x="1366" y="0" width="1280" height="720" />
     </state>
@@ -149,10 +156,10 @@
       <screen x="1366" y="0" width="1280" height="720" />
     </state>
     <state width="1320" height="226" key="GridCell.Tab.1.right/51.27.1315.741/1366.0.1280.720@1366.0.1280.720" timestamp="1596913775597" />
-    <state x="238" y="27" width="1024" height="741" key="SettingsEditor" timestamp="1597081893384">
+    <state x="238" y="31" width="1024" height="741" key="SettingsEditor" timestamp="1597102615333">
       <screen x="51" y="27" width="1315" height="741" />
     </state>
-    <state x="238" y="31" width="1022" height="737" key="SettingsEditor/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1596925317904" />
+    <state x="238" y="31" width="1022" height="737" key="SettingsEditor/51.27.1315.741/1366.0.1280.720@51.27.1315.741" timestamp="1597102615333" />
     <state x="238" y="27" width="1024" height="741" key="SettingsEditor/51.27.1315.741@51.27.1315.741" timestamp="1597081893384" />
     <state x="375" y="291" width="646" height="229" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1597081696438">
       <screen x="51" y="27" width="1315" height="741" />

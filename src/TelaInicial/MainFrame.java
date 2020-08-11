@@ -1,7 +1,6 @@
 package TelaInicial;
 
-import Requisicoes.RequisicaoTeste.RequisicaoTeste;
-import Requisicoes.Salvar;
+import Requisicoes.RequisicaoTeste.Requisicao;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,16 +45,14 @@ public class MainFrame extends JFrame implements ActionListener {
         titulorequisição = new JLabel("Insira o endpoint da API");
         jrequisição = new JButton("Ir");
         jTextFieldurl = new JTextField();
-        //jTextFieldcaminhoSalvar = new JTextField();
-        //labelcamiho = new JLabel("Informe o nome do arquivo a ser gravado");
 
 
         //iconeFlussic = new ImageIcon(getClass().getResource("//TelaInicial//flussonic.png"));
-        TituloStreaming = new JLabel("Selecione a API");
-        listaapis.add("Flussonic");
-        listaapis.add("Alpha OTT");
-        listaapis.add("Mware");
-        listaapis.add("Chargebee");
+        TituloStreaming = new JLabel("Lista de APIs testadas");
+        //listaapis.add("Flussonic");
+        //listaapis.add("Alpha OTT");
+        //listaapis.add("Mware");
+        //listaapis.add("Chargebee");
         listaapis.add("Github");
 
         apis = new JComboBox();
@@ -67,23 +64,21 @@ public class MainFrame extends JFrame implements ActionListener {
     private void inicializarComponentes() {
         jFramePrincipal.setJMenuBar(mnBarra);
         jFramePrincipal.add(apis);
-        //jFramePrincipal.add(labelcamiho);
-        //jFramePrincipal.add(jTextFieldcaminhoSalvar);
+
         mnBarra.add(mnInformacoes);
         mnBarra.add(mnSairdaaplicacao);
         mnInformacoes.add(miInformacoes);
         mnSairdaaplicacao.add(miSair);
         jFramePrincipal.add(titulorequisição);
-        titulorequisição.setBounds(400, 220, 200, 200);
+        titulorequisição.setBounds(300, 110, 200, 200);
         titulorequisição.setFont(new Font("arial", Font.CENTER_BASELINE, 16));
-        //labelcamiho.setFont(new Font("arial", Font.CENTER_BASELINE, 16));
+
         jFramePrincipal.add(jrequisição);
-        jrequisição.setBounds(680, 450, 50, 30);
-        TituloStreaming.setBounds(400, 20, 200, 100);
+        jrequisição.setBounds(700, 250, 50, 30);
+        TituloStreaming.setBounds(300, 20, 250, 100);
         jFramePrincipal.add(jTextFieldurl);
-        jTextFieldurl.setBounds(330, 350, 400, 30);
-        //labelcamiho.setBounds(380, 410, 400, 30);
-        //jTextFieldcaminhoSalvar.setBounds(340, 450, 350, 30);
+        jTextFieldurl.setBounds(300, 250, 400, 30);
+
 
         jTextFieldurl.addFocusListener(new FocusListener() {
             @Override
@@ -99,20 +94,8 @@ public class MainFrame extends JFrame implements ActionListener {
 
             }
         });
-
-       /* jTextFieldcaminhoSalvar.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent focusEvent) {
-                jTextFieldcaminhoSalvar.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent focusEvent) {
-
-            }
-        });*/
         TituloStreaming.setFont(new Font("arial", Font.BOLD, 20));
-        apis.setBounds(380, 120, 200, 30);
+        apis.setBounds(300, 120, 200, 30);
 
         URL path = this.getClass().getResource("icone.png");
         Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(path);
@@ -126,7 +109,7 @@ public class MainFrame extends JFrame implements ActionListener {
         apis.addActionListener(this);
         jFramePrincipal.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFramePrincipal.getContentPane().setLayout(null);
-        jFramePrincipal.setPreferredSize(new Dimension(900, 650));
+        jFramePrincipal.setPreferredSize(new Dimension(900, 550));
         jFramePrincipal.pack();
         jFramePrincipal.setLocationRelativeTo(null);
         jFramePrincipal.setResizable(false);
@@ -139,8 +122,7 @@ public class MainFrame extends JFrame implements ActionListener {
         //jTextFieldurl.setText("");
         if (actionEvent.getSource().equals(miSair)) {
             System.exit(0);
-        } else if (actionEvent.getSource().equals(miInformacoes)) {
-            System.out.println("...");
+
         } else if (actionEvent.getSource().equals(apis)) {
             jTextFieldurl.setText("Insira o endpoint do " + apis.getSelectedItem().toString());
 
@@ -148,10 +130,18 @@ public class MainFrame extends JFrame implements ActionListener {
             //System.out.println("ok");
             //new RequisicaoTeste();
             String requisicao = jTextFieldurl.getText();
+            new Requisicao().fazerrquisicaoGithub(requisicao);
 
+        } else if (actionEvent.getSource().equals(miInformacoes)) {
+            ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("github.png"));
+            String[] opcao = {"OK"};
+            JOptionPane.showOptionDialog(null,
+                    "Develop by Terriaga"
+                    ,
+                    "Sobre", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                    img, opcao, opcao[0]);
 
-            new RequisicaoTeste().fazerrquisicaoGithub(requisicao);
-
+            Toolkit.getDefaultToolkit().beep();
         }
     }
 

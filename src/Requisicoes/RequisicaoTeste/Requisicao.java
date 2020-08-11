@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RequisicaoTeste {
+public class Requisicao {
     List<Object> resposta = new ArrayList<>();
     //String spec = "https://api.github.com/users/IgorTerriaga/repos";
     public void fazerrquisicaoGithub(String urls) {

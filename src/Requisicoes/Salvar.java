@@ -1,15 +1,12 @@
 package Requisicoes;
 
 
-import org.codehaus.jackson.map.ObjectMapper;
-import org.json.simple.JSONObject;
-
 import javax.swing.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.util.List;
-import java.util.Map;
 
 public class Salvar {
 
@@ -41,7 +38,7 @@ public class Salvar {
                 e.printStackTrace();
             }
         } else if (returnval == JFileChooser.CANCEL_OPTION) {
-            //JOptionPane.showMessageDialog(null, "Impossivel salvar resposta, "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Resolveu não salvar", "Não salvou!", JOptionPane.WARNING_MESSAGE);
 
         }
 
