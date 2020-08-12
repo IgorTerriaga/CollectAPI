@@ -5,9 +5,11 @@ import Requisicoes.RequisicaoTeste.Requisicao;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MainFrame extends JFrame implements ActionListener {
 
@@ -17,12 +19,14 @@ public class MainFrame extends JFrame implements ActionListener {
     private JMenuBar mnBarra;
     private JMenu mnInformacoes;
     private JMenu mnSairdaaplicacao;
+    private JMenu mnAbrir;
     private Image iconeTitulo;
     private ImageIcon iconeFlussic;
     private JLabel labelFlussonic;
     private JLabel TituloStreaming;
     private JMenuItem miSair;
     private JMenuItem miInformacoes;
+    private JMenuItem miAbrir;
     private static JComboBox apis;
 
     private JLabel titulorequisição;
@@ -37,9 +41,11 @@ public class MainFrame extends JFrame implements ActionListener {
 
         mnBarra = new JMenuBar();
         mnInformacoes = new JMenu("Informações");
+        mnAbrir = new JMenu("Abrir Arquivo salvo");
         mnSairdaaplicacao = new JMenu("Sair");
         miSair = new JMenuItem("Sair da aplicação");
         miInformacoes = new JMenuItem("Consultar informações");
+        miAbrir = new JMenuItem("Abrir");
         labelFlussonic = new JLabel();
 
         titulorequisição = new JLabel("Insira o endpoint da API");
@@ -47,7 +53,6 @@ public class MainFrame extends JFrame implements ActionListener {
         jTextFieldurl = new JTextField();
 
 
-        //iconeFlussic = new ImageIcon(getClass().getResource("//TelaInicial//flussonic.png"));
         TituloStreaming = new JLabel("Lista de APIs testadas");
         //listaapis.add("Flussonic");
         //listaapis.add("Alpha OTT");
@@ -64,7 +69,8 @@ public class MainFrame extends JFrame implements ActionListener {
     private void inicializarComponentes() {
         jFramePrincipal.setJMenuBar(mnBarra);
         jFramePrincipal.add(apis);
-
+        mnBarra.add(mnAbrir);
+        mnAbrir.add(miAbrir);
         mnBarra.add(mnInformacoes);
         mnBarra.add(mnSairdaaplicacao);
         mnInformacoes.add(miInformacoes);
@@ -107,6 +113,7 @@ public class MainFrame extends JFrame implements ActionListener {
         jrequisição.addActionListener(this);
         miSair.addActionListener(this);
         apis.addActionListener(this);
+        miAbrir.addActionListener(this);
         jFramePrincipal.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFramePrincipal.getContentPane().setLayout(null);
         jFramePrincipal.setPreferredSize(new Dimension(900, 550));
@@ -120,7 +127,6 @@ public class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        //jTextFieldurl.setText("");
         if (actionEvent.getSource().equals(miSair)) {
             System.exit(0);
 
@@ -128,8 +134,6 @@ public class MainFrame extends JFrame implements ActionListener {
             jTextFieldurl.setText("Insira o endpoint do " + apis.getSelectedItem().toString());
 
         } else if (actionEvent.getSource().equals(jrequisição)) {
-            //System.out.println("ok");
-            //new RequisicaoTeste();
             String requisicao = jTextFieldurl.getText();
             new Requisicao().fazerrquisicaoGithub(requisicao);
 
@@ -143,6 +147,19 @@ public class MainFrame extends JFrame implements ActionListener {
                     img, opcao, opcao[0]);
 
             Toolkit.getDefaultToolkit().beep();
+        } else if (actionEvent.getSource().equals(miAbrir)) {
+            JFileChooser jFileChooser = new JFileChooser();
+            jFileChooser.setVisible(true);
+            //int returnValue = jFileChooser.showOpenDialog(null);
+            File f = jFileChooser.getSelectedFile();
+//            try {
+//                PrintStream ps = new PrintStream(f);
+//                ObjectOutputStream objectOutputStream = new ObjectOutputStream(ps);
+//                for(Object ob :  )
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+
         }
     }
 
@@ -154,6 +171,8 @@ public class MainFrame extends JFrame implements ActionListener {
                     break;
                 }
             }
+            //javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
