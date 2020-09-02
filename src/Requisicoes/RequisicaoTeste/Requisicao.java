@@ -42,7 +42,6 @@ public class Requisicao {
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
                     String line = br.readLine();
                     while (line != null) {
-                        //System.out.println(line);
                         resposta.add(line);
                         line = br.readLine();
                     }

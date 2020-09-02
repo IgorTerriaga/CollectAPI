@@ -161,12 +161,19 @@ public class MainFrame extends JFrame implements ActionListener {
 
             Toolkit.getDefaultToolkit().beep();
         } else if (actionEvent.getSource().equals(miAbrir)) {
-            //JFileChooser jFileChooser = new JFileChooser();
-            // jFileChooser.setVisible(true);
-            //int returnValue = jFileChooser.showOpenDialog(null);
-            //File f = jFileChooser.getSelectedFile();
-
-
+            JFileChooser jFileChooser = new JFileChooser();
+            jFileChooser.setVisible(true);
+            int returnValue = jFileChooser.showOpenDialog(null);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File f = jFileChooser.getSelectedFile();
+                try {
+                    Runtime r = Runtime.getRuntime();
+                    r.exec("C:\\Program Files (x86)\\Notepad++\\notepad++ " + f);
+                } catch (java.io.IOException e) {
+                    //JOptionPane.showMessageDialog(null, "Caminho do Arquivo esta errado, contate os Desenvolvedores", , JOptionPane.ERROR_MESSAGE);
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
