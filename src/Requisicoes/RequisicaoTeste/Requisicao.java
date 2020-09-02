@@ -1,11 +1,10 @@
 package Requisicoes.RequisicaoTeste;
 
 import Requisicoes.Salvar;
+import netscape.javascript.JSObject;
 
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,21 +14,26 @@ import java.util.Base64;
 import java.util.List;
 
 public class Requisicao {
-    List<Object> resposta = new ArrayList<>();
+    List<String> resposta = new ArrayList<>();
 
-    public void fazerrquisicaoGithub(String urls) {
+    public void fazerRequisicao(String urls) {
+        String enconding = "flussonic:flussonic";
         try {
             URL url = new URL(urls);
             try {
+                if (urls.contains("sk")) {
+                    enconding = "sk_test_4eC39HqLyjWDarjtT1zdp7dc:";
+                }
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                String encoded = "Basic " + Base64.getEncoder().encodeToString(("flussonic:flussonic").getBytes(StandardCharsets.UTF_8));
+                String encoded = "Basic " + Base64.getEncoder().encodeToString(("sk_test_4eC39HqLyjWDarjtT1zdp7dc:").getBytes(StandardCharsets.UTF_8));
                 conn.setRequestProperty("Authorization", encoded);
                 conn.setRequestMethod("GET");
                 conn.connect();
-                if(conn.getResponseCode()==401){
+
+                if (conn.getResponseCode() == 401) {
                     JOptionPane.showMessageDialog(null, "Usuario não autorizado - ERROR 401", "Sem permissão!", JOptionPane.WARNING_MESSAGE);
 
-                }else if (conn.getResponseCode()==404){
+                } else if (conn.getResponseCode() == 404) {
                     JOptionPane.showMessageDialog(null, "Não encontrado - ERROR 404", "Não foi possível encontrar!", JOptionPane.WARNING_MESSAGE);
 
                 }
@@ -38,9 +42,11 @@ public class Requisicao {
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
                     String line = br.readLine();
                     while (line != null) {
+                        //System.out.println(line);
                         resposta.add(line);
                         line = br.readLine();
                     }
+                    //resposta.forEach(s ->  System.out.println(s));
                     new Salvar().SalvarJson(resposta);
                 }
             } catch (IOException e) {

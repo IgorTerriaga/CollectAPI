@@ -1,32 +1,40 @@
 package Requisicoes;
 
 
+import netscape.javascript.JSObject;
+
 import javax.swing.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Salvar {
 
-    public void SalvarJson(List<Object> lista) {
+    public void SalvarJson(List<String> lista) {
 
+        String caminho = "";
         JFileChooser fc = new JFileChooser();
+        File file = null;
         fc.setCurrentDirectory(new File("\\home"));
         int returnval = fc.showSaveDialog(new JFrame());
 
         if (returnval == JFileChooser.APPROVE_OPTION) {
             try {
-                PrintStream ps = new PrintStream(fc.getSelectedFile() + ".json");
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(ps);
-                for (Object obj : lista) {
-                    objectOutputStream.writeObject(obj);
-                    objectOutputStream.flush();
+                caminho = fc.getSelectedFile().getAbsolutePath();
+
+                if (!caminho.equals("")) {
+                    file = new File(caminho + ".json");
+                    FileWriter fw = new FileWriter(file);
+                    BufferedWriter bw = new BufferedWriter(fw);
+
+                    for (String obj : lista) {
+                        bw.write(obj);
+                    }
+                    bw.close();
+                    fw.close();
                 }
-                objectOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+
             }
         } else if (returnval == JFileChooser.CANCEL_OPTION) {
             JOptionPane.showMessageDialog(null, "Resolveu não salvar", "Não salvou!", JOptionPane.WARNING_MESSAGE);

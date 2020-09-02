@@ -22,7 +22,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private JMenu mnAbrir;
     private Image iconeTitulo;
     private ImageIcon iconeFlussic;
-    private JLabel labelFlussonic;
+    private JLabel labelFlussonic, labelhistorico;
     private JLabel TituloStreaming;
     private JMenuItem miSair;
     private JMenuItem miInformacoes;
@@ -33,6 +33,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private JButton jrequisição;
     private JTextField jTextFieldurl;
     private JTextField jTextFieldcaminhoSalvar;
+    private JTextArea jTextFieldlistarequisicoes;
     //private JLabel labelcamiho;
 
 
@@ -51,14 +52,17 @@ public class MainFrame extends JFrame implements ActionListener {
         titulorequisição = new JLabel("Insira o endpoint da API");
         jrequisição = new JButton("Ir");
         jTextFieldurl = new JTextField();
+        jTextFieldlistarequisicoes = new JTextArea();
 
 
         TituloStreaming = new JLabel("Lista de APIs testadas");
+        labelhistorico = new JLabel("Histórico de Requisições");
         //listaapis.add("Flussonic");
         //listaapis.add("Alpha OTT");
         listaapis.add("Flussonic");
         listaapis.add("Poke API");
         listaapis.add("Github");
+        listaapis.add("Stripe");
 
         apis = new JComboBox();
         apis.setModel(new javax.swing.DefaultComboBoxModel(listaapis.toArray()));
@@ -79,12 +83,14 @@ public class MainFrame extends JFrame implements ActionListener {
         titulorequisição.setBounds(300, 110, 200, 200);
         titulorequisição.setFont(new Font("arial", Font.CENTER_BASELINE, 16));
 
+        jFramePrincipal.add(jTextFieldlistarequisicoes);
+        jTextFieldlistarequisicoes.setEditable(false);
         jFramePrincipal.add(jrequisição);
         jrequisição.setBounds(700, 250, 50, 30);
         TituloStreaming.setBounds(300, 20, 250, 100);
         jFramePrincipal.add(jTextFieldurl);
         jTextFieldurl.setBounds(300, 250, 400, 30);
-
+        jTextFieldlistarequisicoes.setBounds(10, 90, 240, 200);
 
         jTextFieldurl.addFocusListener(new FocusListener() {
             @Override
@@ -98,11 +104,17 @@ public class MainFrame extends JFrame implements ActionListener {
             @Override
             public void focusLost(FocusEvent focusEvent) {
 
+                jTextFieldlistarequisicoes.append(jTextFieldurl.getText() + "\n");
             }
         });
+
+
         TituloStreaming.setFont(new Font("arial", Font.BOLD, 20));
         apis.setBounds(300, 120, 200, 30);
+        labelhistorico.setFont(new Font("arial", Font.BOLD, 20));
+        labelhistorico.setBounds(10, 59, 240, 20);
 
+        jFramePrincipal.add(labelhistorico);
         URL path = this.getClass().getResource("icone.png");
         Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(path);
         // ImageIcon imgFLussonic = new ImageIcon(ClassLoader.getSystemResource("flussonic.png"));
@@ -116,7 +128,7 @@ public class MainFrame extends JFrame implements ActionListener {
         miAbrir.addActionListener(this);
         jFramePrincipal.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jFramePrincipal.getContentPane().setLayout(null);
-        jFramePrincipal.setPreferredSize(new Dimension(900, 550));
+        jFramePrincipal.setPreferredSize(new Dimension(1280, 720));
         jFramePrincipal.pack();
         jFramePrincipal.setLocationRelativeTo(null);
         jFramePrincipal.setResizable(false);
@@ -134,8 +146,9 @@ public class MainFrame extends JFrame implements ActionListener {
             jTextFieldurl.setText("Insira o endpoint do " + apis.getSelectedItem().toString());
 
         } else if (actionEvent.getSource().equals(jrequisição)) {
+
             String requisicao = jTextFieldurl.getText();
-            new Requisicao().fazerrquisicaoGithub(requisicao);
+            new Requisicao().fazerRequisicao(requisicao);
 
         } else if (actionEvent.getSource().equals(miInformacoes)) {
             ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("github.png"));
@@ -148,17 +161,11 @@ public class MainFrame extends JFrame implements ActionListener {
 
             Toolkit.getDefaultToolkit().beep();
         } else if (actionEvent.getSource().equals(miAbrir)) {
-            JFileChooser jFileChooser = new JFileChooser();
-            jFileChooser.setVisible(true);
+            //JFileChooser jFileChooser = new JFileChooser();
+            // jFileChooser.setVisible(true);
             //int returnValue = jFileChooser.showOpenDialog(null);
-            File f = jFileChooser.getSelectedFile();
-//            try {
-//                PrintStream ps = new PrintStream(f);
-//                ObjectOutputStream objectOutputStream = new ObjectOutputStream(ps);
-//                for(Object ob :  )
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
+            //File f = jFileChooser.getSelectedFile();
+
 
         }
     }
