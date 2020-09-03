@@ -15,6 +15,6 @@ Instruções de utilização:
 
 6 - No menu, selecione a opção abrir arquivo, procure o arquivo onde salvou e confirme na janela.
 
-7 - No momento, o arquivo será aberto pelo Notepad++, por isso é necessário esse software instalado.
+7 -O arquivo será aberto como editor de textos do seu PC ou outro software que leia arquivo .json
 
 8 - Até a próxima.
